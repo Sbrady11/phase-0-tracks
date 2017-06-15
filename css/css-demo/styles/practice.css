@@ -1,5 +1,5 @@
-#contanct-info p {
-	font size: .8em;
+#contact-info p {
+	font-size: .8em;
 }
 
 .job {
@@ -11,6 +11,10 @@
 	margin: 35px;
 }
 
-.achievment {
+ul {
 	font-size: .8em;
+}
+
+ul > li.featured {
+	color:#DAA520;
 }
