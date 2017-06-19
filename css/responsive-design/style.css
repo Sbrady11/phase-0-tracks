@@ -12,6 +12,12 @@ cite {
 #external-links ul {
   list-style-type: none;
   padding-left: 0px;
+  width: 756px;
+}
+#external-links{
+  display: inline-block;
+  float: right;
+  width: 20%;
 }
 
 /* you're welcome to edit the
@@ -29,4 +35,35 @@ figure {
 figcaption {
   font-style: italic;
   text-align: right;
+}
+
+main {
+  width: 80%;
+}
+
+body{
+  max-width: 960px;
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+    font-size: 80%; 
+  }
+}
+
+@media screen and (min-width: 1500px){
+  body {
+    max-width: 1500px;
+    font-size: 110%;
+  }
+  #external-links {
+    position: fixed;
+    float: right;
+    right: 0;
+    top: 50%;
+    background-color: tan;
+    color: hotpink;
+    font-family: helvetica;
+  }
 }
