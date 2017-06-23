@@ -1,0 +1,25 @@
+Elevator robot pseudo-code
+
+-Record current floor position.
+-If desired floor is above your position, press 'up'
+	-Else, press 'down'.
+-Enter elevator once doors open.
+-select desired floor.
+-press the button.
+-until elevator stops, remain in elevator.
+-exit once the doors open.
+
+New pseudo-code
+Making Coffee
+
+-Select desired coffee pod from given selection (dark, light)
+-Fill canister with water
+-Open pod hatch
+	-Insert desired coffee pod
+-Close pod hatch
+-Place mug underneath machine faucet
+-On the touch screen, select desired coffee size, and select 'brew'
+	-do not remove cup until the coffee finishes dispensing
+-wait until cool
+	-then drink
+
