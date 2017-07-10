@@ -24,6 +24,7 @@
 
 # "The case of the disappearing last letter".pop
 # => "The case of the disappearing last lette"
+puts "The case of the disappearing last letter".chop 
 
 # "The mystery of the missing first letter".<???> (This one i need help with, is there a singular method? could we .reverse, then delete the last character, then reverse it back?)
 # => "he mystery of the missing first letter"
