@@ -20,6 +20,9 @@ class Puppy
   	int*9
   end
 
+  def whimper
+   puts "*whimpers*"
+  end
 
 end
 
@@ -30,3 +33,5 @@ fluffy.speak(3)
 fluffy.roll_over
 
 puts fluffy.dog_years(3)
+
+fluffy.whimper
