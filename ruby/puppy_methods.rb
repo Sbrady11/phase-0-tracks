@@ -1,4 +1,3 @@
-
 class Puppy
   
   def initialize
@@ -30,12 +29,35 @@ class Puppy
 
 end
 
-fluffy = Puppy.new
-fluffy.fetch('stick')
+# fluffy = Puppy.new
+# fluffy.fetch('stick')
 
-fluffy.speak(3)
-fluffy.roll_over
+# fluffy.speak(3)
+# fluffy.roll_over
 
-puts fluffy.dog_years(3)
+# puts fluffy.dog_years(3)
 
-fluffy.whimper
+# fluffy.whimper
+
+class Gymnast
+
+	def initialize
+		puts "Initializing..."
+	end
+
+	def flip
+		puts "Flipping"
+	end
+
+	def jump
+		puts "Jumping"
+	end
+
+
+end
+gymnasts = []
+
+50.times { 
+	gymnasts << Gymnast.new
+}
+
