@@ -61,3 +61,7 @@ gymnasts = []
 	gymnasts << Gymnast.new
 }
 
+gymnasts.each { |gymnast|
+	gymnast.flip
+	gymnast.jump 
+}
