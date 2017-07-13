@@ -6,7 +6,19 @@ class Puppy
     toy
   end
 
+  def speak(int)
+  	int.times{ 
+  		puts "Woof!"
+  	}
+  end
+
+
+
 end
 
 fluffy = Puppy.new
 fluffy.fetch('stick')
+
+fluffy.speak(3)
+
+	
