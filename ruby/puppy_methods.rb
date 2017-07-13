@@ -1,3 +1,4 @@
+
 class Puppy
 
   def fetch(toy)
@@ -7,3 +8,5 @@ class Puppy
 
 end
 
+fluffy = Puppy.new
+fluffy.fetch('stick')
