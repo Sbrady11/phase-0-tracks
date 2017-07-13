@@ -16,7 +16,9 @@ class Puppy
   	puts "*rolls over*"
   end 
 
-
+  def dog_years(int)
+  	int*9
+  end
 
 
 end
@@ -26,4 +28,5 @@ fluffy.fetch('stick')
 
 fluffy.speak(3)
 fluffy.roll_over
-	
+
+puts fluffy.dog_years(3)
