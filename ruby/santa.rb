@@ -38,6 +38,10 @@ class Santa
     def ethnicity
     	@ethnicity
     end
+
+    def ethnicity=(new_ethnicity)
+    	@ethnicity = new_ethnicity
+    end
 end
 
 santas = []
@@ -47,3 +51,12 @@ example_genders.length.times do |i|
   santas << Santa.new(example_genders[i], example_ethnicities[i])
 end
 santas[1].get_mad_at("Dancer")
+
+
+puts santas[1].age
+
+puts santas[1].ethnicity
+
+puts santas[1].ethnicity = "Celtic"
+
+puts santas[1].ethnicity
