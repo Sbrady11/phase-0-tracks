@@ -18,7 +18,7 @@ class Santa
 		@age += 1
 	end
 
-  def get_mad_at(reindeer_name)
+  	def get_mad_at(reindeer_name)
     i = 0
     removed_reindeer = nil
       while removed_reindeer != @reindeer_ranking[i]
@@ -29,6 +29,14 @@ class Santa
         end
           i += 1
       end
+    end
+
+    def age
+    	@age
+    end
+
+    def ethnicity
+    	@ethnicity
     end
 end
 
