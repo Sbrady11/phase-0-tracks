@@ -1,6 +1,6 @@
 class Santa
-	def initialize(name, ethnicity)
-		@name = name
+	def initialize(gender, ethnicity)
+		@gender = gender
 		@ethnicity = ethnicity
 		@age = 0
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
@@ -23,3 +23,5 @@ santas << Santa.new("male", "Japanese")
 santas << Santa.new("female", "prefer not to say")
 santas << Santa.new("gender fluid", "Mystical Creature (unicorn)")
 santas << Santa.new("N/A", "N/A")
+
+
