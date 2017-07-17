@@ -76,7 +76,7 @@ end
 	# print and format the list 
 def print_pretty(grocery_list)
 	grocery_list.each do |item, quantity| 
-		puts "you bought #{quantity} #{item}s"
+		puts "you bought #{quantity} #{item}"
 	end
 end
 
@@ -95,6 +95,7 @@ add_item(test_food_list, 'ice cream', 4)
 add_item(test_food_list, 'tomatoes', 1)
 
 print_pretty(test_food_list)
+
 puts "********************************************************************"
 
 remove_item(test_food_list, 'lemonade')
@@ -102,9 +103,9 @@ remove_item(test_food_list, 'lemonade')
 print_pretty(test_food_list)
 
 puts "********************************************************************"
+
 update_quantity(test_food_list, 'ice cream', 1)
 
 print_pretty(test_food_list)
 
 puts "********************************************************************"
-
