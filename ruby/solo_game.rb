@@ -21,6 +21,7 @@ class Game
 			puts "You Lose! GAME OGRE"
 			@is_over = true
 		when player_hand == computer_hand
+			puts "A tie?! Damned computers...."
 		end
 	end
 end
