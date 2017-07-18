@@ -16,14 +16,13 @@
 # Much fun will be had
 class WordGame
 	attr_reader :guess_count
-	attr_accessor :hidden_word, :character_to_check, :secret_word, :guess_array
+	attr_accessor :hidden_word, :character_to_check, :guess_array
 
 	def initialize
 		@guess_count = 0
 		@available_guesses = nil
 		@hidden_word = nil
 		@word = nil
-		@character_to_check = character_to_check
 		@guess_array = []
 		puts "Starting game..."
 	end
@@ -41,30 +40,34 @@ class WordGame
 	end
 
 	def checker(character)
-		if @guess_array.include?(character)
-			puts "Choose a new character, you already chose that one!"
-			@guess_count - 1
-		end
+   		if character.length > 1
+    		puts "Just one letter please!"
 
-		if @word.include?(character)
+    	elsif @guess_array.include?(character)
+			puts "Choose a new character, you already chose that one!"
+
+		elsif @word.include?(character)
+			
 			@word.split('').each do |split_character|
+
 				if split_character == character
-					puts 'true'
-					guess_array << character
-					puts @word.index(split_character)
+					
+					guess_array << split_character
+					
 					@hidden_word[@word.index(character)] = split_character
+
 					@guess_count += 1
 				end
+
 			end
+
 		else
-			puts "nope, try again!"
+			puts "Nope, try again! You're friend is closer to death!!"
 			
 			@guess_count += 1
-
 		end
 		
 		puts @hidden_word
-	
 	end
 
 	def start
@@ -72,6 +75,9 @@ class WordGame
 		word_intake(gets.chomp)
 
 		hide(@word)
+
+		puts "puts The word is #{@word.length} letters long."
+
 		while guesses != 0
 			puts "You have #{guesses} guesses remaining! Enter a character to check"
 			checker(gets.chomp)
@@ -79,6 +85,7 @@ class WordGame
 			if @word == @hidden_word
 				puts "Victory!"
 			break
+			
 			end
 		end
 
