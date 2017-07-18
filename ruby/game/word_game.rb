@@ -15,13 +15,13 @@
 # Word will be revealed regardless
 # Much fun will be had
 class WordGame
-	attr_reader :guess_count, :is_over
+	attr_reader :guess_count
 	attr_accessor :hidden_word, :character_to_check, :secret_word, :guess_array
 
 	def initialize
-		@is_over = false
 		@guess_count = 0
-		@hidden_word = hidden_word
+		@available_guesses = nil
+		@hidden_word = nil
 		@word = nil
 		@character_to_check = character_to_check
 		@guess_array = []
@@ -32,58 +32,63 @@ class WordGame
 		@word = original_word.downcase
 	end
 
+	def guesses
+		@available_guesses = 2*@word.length - @guess_count
+	end
+
 	def hide(word_to_hide)
-		hidden_word = p ' _ ' * word_to_hide.length	
-		hidden_word
+		@hidden_word = p '_' * word_to_hide.length
 	end
 
 	def checker(character)
-		if @word.include?(character)
-			puts "true!"
+		if @guess_array.include?(character)
+			puts "Choose a new character, you already chose that one!"
+			@guess_count - 1
 		end
+
+		if @word.include?(character)
+			@word.split('').each do |split_character|
+				if split_character == character
+					puts 'true'
+					guess_array << character
+					puts @word.index(split_character)
+					@hidden_word[@word.index(character)] = split_character
+					@guess_count += 1
+				end
+			end
+		else
+			puts "nope, try again!"
+			
+			@guess_count += 1
+
+		end
+		
+		puts @hidden_word
+	
 	end
 
 	def start
 		puts "Enter word to hide!"
 		word_intake(gets.chomp)
 
+		hide(@word)
+		while guesses != 0
+			puts "You have #{guesses} guesses remaining! Enter a character to check"
+			checker(gets.chomp)
 
-		puts hide(@word)
+			if @word == @hidden_word
+				puts "Victory!"
+			break
+			end
+		end
 
-		puts "You have #{@word.length - @guess_count} guesses remaining! Enter a character to check, or enter 'guess' to guess the secret word!"
-		checker(gets.chomp)
+		if guesses == 0
+			puts "Sorry, you killed the little stick man!"
+		end
 	end
 
-
 end
-
 
 game = WordGame.new
 
 game.start
-
-	# if character_to_check == 'guess'
-
-	# elsif character_to_check.length > 1
-	# 	puts "Please just a letter to check at first!"
-	# 	character_to_check = gets.chomp
-
-
-
-
-
-
-
-
-# hidden_word = p ' _ ' * secret_word.length	
-
-# puts hidden_word
-
-# puts hidden_word[1]
-
-
-# puts secret_word[1]
-
-# hidden_word[1] = 's'
-
-# puts hidden_word
