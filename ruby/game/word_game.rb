@@ -16,41 +16,66 @@
 # Much fun will be had
 class WordGame
 	attr_reader :guess_count, :is_over
-	attr_accessor :hidden_word, :character_to_check, :secret_word
+	attr_accessor :hidden_word, :character_to_check, :secret_word, :guess_array
 
 	def initialize
 		@is_over = false
 		@guess_count = 0
-		@secret_word = secret_word
+		@hidden_word = hidden_word
+		@word = nil
 		@character_to_check = character_to_check
+		@guess_array = []
 		puts "Starting game..."
 	end
 
+	def word_intake(original_word)
+		@word = original_word.downcase
+	end
+
 	def hide(word_to_hide)
-		@hidden_word = p ' _ ' * word_to_hide.length	
-		@hidden_word
+		hidden_word = p ' _ ' * word_to_hide.length	
+		hidden_word
 	end
 
 	def checker(character)
+		secret_word.each do |char|
+			if char == character
+				@guess_array << character_to_check
+				hidden_word.gsub(character)
+				@guess_count += 1
+			else secret_word
+			end
+		@guess_count += 1
+		end
 	end
+
+	def start
+		puts "Enter word to hide!"
+		game.word_intake(gets.chomp)
+
+
+		game.hide(word_intake)
+		puts "You have #{word_intake.length} guesses remaining! Enter a character to check, or enter 'guess' to guess the secret word!"
+	end
+
 
 end
 
+
 game = WordGame.new
 
-puts "Enter word to hide!"
-secret_word = gets.chomp
+game.start
 
-game.hide(secret_word)
-puts "You have #{secret_word.length} guesses remaining! Enter a character to check, or enter 'guess' to guess the secret word!"
-character_to_check = gets.chomp.downcase
 	# if character_to_check == 'guess'
 
 	# elsif character_to_check.length > 1
 	# 	puts "Please just a letter to check at first!"
 	# 	character_to_check = gets.chomp
 
-game.checker(character_to_check)
+
+
+
+
 
 
 
