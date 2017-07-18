@@ -38,24 +38,20 @@ class WordGame
 	end
 
 	def checker(character)
-		secret_word.each do |char|
-			if char == character
-				@guess_array << character_to_check
-				hidden_word.gsub(character)
-				@guess_count += 1
-			else secret_word
-			end
-		@guess_count += 1
+		if @word.include?(character)
+			puts "true!"
 		end
 	end
 
 	def start
 		puts "Enter word to hide!"
-		game.word_intake(gets.chomp)
+		word_intake(gets.chomp)
 
 
-		game.hide(word_intake)
-		puts "You have #{word_intake.length} guesses remaining! Enter a character to check, or enter 'guess' to guess the secret word!"
+		puts hide(@word)
+
+		puts "You have #{@word.length - @guess_count} guesses remaining! Enter a character to check, or enter 'guess' to guess the secret word!"
+		checker(gets.chomp)
 	end
 
 
