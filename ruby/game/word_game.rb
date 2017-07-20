@@ -18,84 +18,75 @@ class WordGame
 	attr_reader :guess_count
 	attr_accessor :hidden_word, :guess_array
 
-	def initialize
-		@guess_count = 0
-		@available_guesses = nil
-		@hidden_word = nil
-		@word = nil
+	def initialize (word)
+		@word = word.downcase
+		@guess_count = @word.length * 2
+		@hidden_word = '_' * @word.length
 		@guess_array = []
-		puts "Starting game..."
 	end
 
-	def word_intake(original_word)
-		@word = original_word.downcase
-	end
-
-	def guesses
-		@available_guesses = 2*@word.length - @guess_count
-	end
-
-	def hide(word_to_hide)
-		@hidden_word = p '_' * word_to_hide.length
+	def character_is_valid?(character)
+		character.length > 1
 	end
 
 	def checker(character)
-   		if character.length > 1
+   		if character_is_valid?(character)
     		puts "Just one letter please!"
 
     	elsif @guess_array.include?(character)
 			puts "Choose a new character, you already chose that one!"
 
 		elsif @word.include?(character)
-			
-			@word.split('').each do |split_character|
+			@word.split('').each_with_index do |split_character, index|
 
 				if split_character == character
-					
-					guess_array << split_character
-					
-					@hidden_word[@word.index(character)] = split_character
-
-					@guess_count += 1
+					@hidden_word[index] = split_character
 				end
 
 			end
+			@guess_count -= 1
+
+			@guess_array << character
 
 		else
 			puts "Nope, try again! You're friend is closer to death!!"
 			
-			@guess_count += 1
+			@guess_count -= 1
 		end
 		
 		puts @hidden_word
 	end
 
-	def start
-		puts "Enter word to hide!"
-		word_intake(gets.chomp)
+	def game_over?
+		solved? || @guess_count == 0
+	end
 
-		hide(@word)
+	def solved?
+		@word == @hidden_word
+	end
 
-		puts "puts The word is #{@word.length} letters long."
 
-		while guesses != 0
-			puts "You have #{guesses} guesses remaining! Enter a character to check"
+	def play
+		until game_over?
+			puts "You have #{@guess_count} guesses remaining! Enter a character to check"
 			checker(gets.chomp)
-
-			if @word == @hidden_word
-				puts "Victory!"
-			break
-			
-			end
 		end
 
-		if guesses == 0
+		if solved?
+			puts "Victory!"
+		else
 			puts "Sorry, you killed the little stick man!"
 		end
+
 	end
 
 end
 
-game = WordGame.new
+def interface
+	puts "Player one, enter a word to hide!"
+	game = WordGame.new(gets.chomp)
 
-game.start
+	game.play
+end
+
+interface
