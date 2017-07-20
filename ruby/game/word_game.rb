@@ -16,7 +16,7 @@
 # Much fun will be had
 class WordGame
 	attr_reader :guess_count
-	attr_accessor :hidden_word, :character_to_check, :guess_array
+	attr_accessor :hidden_word, :guess_array
 
 	def initialize
 		@guess_count = 0
