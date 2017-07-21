@@ -1,4 +1,5 @@
 class TodoList
+
 	def initialize(items)
 		@items = items
 	end
@@ -18,4 +19,5 @@ class TodoList
 	def get_item(item_index)
 		@items[item_index]
 	end 
+	
 end
