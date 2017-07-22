@@ -9,4 +9,13 @@ function reverse(word) {
 	for (var i = word.length - 1; i >= 0; i--){
 		new_str += word[i]
 	}
+	return new_str;
+}
+
+reversed_string = reverse("hello");
+
+if (1==1){
+	console.log(reversed_string);
+} else {
+	console.log("false");
 }
