@@ -15,7 +15,11 @@ function longestPhrase(array) {
 	}
 	return longestString;
 }
-
+//Driver code
 var testArray = ["long phrase","longest phrase!","longer phrase"]
+var testArray1 = ["duck", "cow"]
 
 console.log(longestPhrase(testArray))
+console.log(longestPhrase(testArray1))
+
+
