@@ -64,12 +64,20 @@ function randomWords(n){
 	var alphabet = "abcdefghijklmnopqrstuvwxyz"
 	
 	for (var i = 0; i < n; i ++){
-		var newWord = ""
-		var random_length = Math.floor(Math.random()*10 ) + 1
+		var newWord = "";
+		var random_length = Math.floor(Math.random()*10 ) + 1;
+
 		for (var j = 0; j < random_length; j++){
 			newWord = newWord + alphabet.charAt(Math.floor(Math.random() * alphabet.length));
 		}
-		newWordArray.push(newWord)
+		newWordArray.push(newWord);
 	}
-	return newWordArray
+	return newWordArray;
+}
+
+//Do it 10 times!
+
+for (var i = 0; i < 10; i++) {
+	console.log(testArray = randomWords((Math.random()*10) + 1))
+	console.log("Longest Phrase is: " + longestPhrase(testArray))
 }
