@@ -40,7 +40,7 @@ function objectMatcher(obj1, obj2) {
 	for (var key1 in obj1) {
 		for (var key2 in obj2) {
 			if (key1 == key2){
-				if (obj[key1] == obj2[key2]) {
+				if (obj1[key1] == obj2[key2]) {
 					matchMarker = true;
 				}
 			}
@@ -50,5 +50,5 @@ function objectMatcher(obj1, obj2) {
 }
 
 console.log(objectMatcher({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
-console.log(objectMatcher({animal: "Dog", legs: 4}, {animal: "Dog", legs: 3}));
+console.log(objectMatcher({animal: "Dog", legs: 4}, {animal: "cat", legs: 3}));
 
