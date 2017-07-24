@@ -59,17 +59,17 @@ console.log(objectMatcher({animal: "Dog", legs: 4}, {animal: "cat", legs: 3}));
 // Initialize an output array
 // Create an acceptable alphabet array
 
-function random_words(n){
+function randomWords(n){
 	var newWordArray = []
 	var alphabet = "abcdefghijklmnopqrstuvwxyz"
-	var newWord = ""
 	
 	for (var i = 0; i < n; i ++){
+		var newWord = ""
 		var random_length = Math.floor(Math.random()*10 ) + 1
-		
 		for (var j = 0; j < random_length; j++){
-			newWord = newWord + alphabet.charAt(Math.floor(Math.random() * alphabet.length))
-			newWordArray.push(newWord)
+			newWord = newWord + alphabet.charAt(Math.floor(Math.random() * alphabet.length));
 		}
+		newWordArray.push(newWord)
 	}
+	return newWordArray
 }
