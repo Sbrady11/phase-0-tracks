@@ -65,6 +65,9 @@ function random_words(n){
 	var newWord = ""
 	
 	for (var i = 0; i < n; i ++){
+		var random_length = Math.floor(Math.random()*10 ) + 1
+		
+		for (var j = 0; )
 		newWord = newWord + alphabet.charAt(Math.floor(Math.random() * alphabet.length))
 	}
 
