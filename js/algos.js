@@ -52,3 +52,18 @@ function objectMatcher(obj1, obj2) {
 console.log(objectMatcher({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
 console.log(objectMatcher({animal: "Dog", legs: 4}, {animal: "cat", legs: 3}));
 
+// Random test data ------------------------------------------
+// Take in an integer for the length, build an array of random strings (1-10 characters long) with the given length
+// Pseudocode 
+// Take in length integer
+// Initialize an output array
+// Create an acceptable alphabet array
+
+function random_words(n){
+	var newWordArray = []
+	var alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+	var newWord = alphabet.charAt(Math.floor(Math.random() * alphabet.length))
+
+
+}
