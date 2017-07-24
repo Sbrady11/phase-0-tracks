@@ -49,3 +49,6 @@ function objectMatcher(obj1, obj2) {
 	return matchMarker;
 }
 
+console.log(objectMatcher({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
+console.log(objectMatcher({animal: "Dog", legs: 4}, {animal: "Dog", legs: 3}));
+
