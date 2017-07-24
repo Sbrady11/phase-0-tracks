@@ -16,4 +16,6 @@ function longestPhrase(array) {
 	return longestString;
 }
 
-var testArray = ["long phrase","longest phrase","longer phrase"]
+var testArray = ["long phrase","longest phrase!","longer phrase"]
+
+console.log(longestPhrase(testArray))
