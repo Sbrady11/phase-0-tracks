@@ -58,6 +58,12 @@ console.log(objectMatcher({animal: "Dog", legs: 4}, {animal: "cat", legs: 3}));
 // Take in length integer
 // Initialize an output array
 // Create an acceptable alphabet array
+// Until the integer is reached:
+//	generate a random length for the word
+//	for that length, generate a random string of random characters for a random amount of times (less than 10, more than 1)
+// 	push those characters into a new string
+//	push that string to a new string array
+// Return the new array
 
 function randomWords(n){
 	var newWordArray = []
