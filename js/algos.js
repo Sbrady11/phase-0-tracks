@@ -29,11 +29,23 @@ console.log(longestPhrase(testArray1))
 
 //Psuedocode
 // Take in two objects 
+// Initialize the match marker
 // Determine if key 1 and key 2 in object one and two are equivalent
 // If yes, return true
 // Else, return false
 
 function objectMatcher(obj1, obj2) {
-	
+	var matchMarker = false;
+
+	for (var key1 in obj1) {
+		for (var key2 in obj2) {
+			if (key1 == key2){
+				if (obj[key1] == obj2[key2]) {
+					matchMarker = true;
+				}
+			}
+		}
+	} 
+	return matchMarker;
 }
 
