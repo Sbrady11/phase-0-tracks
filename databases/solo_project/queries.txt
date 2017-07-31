@@ -1,0 +1,76 @@
+Display the table information:
+
+	sqlite> SELECT * FROM parent_legion;
+	
+	1|Ultramarines
+	2|Imperial Fists
+	3|Other
+
+	sqlite> SELECT * FROM marine_chapters;
+	
+	1|Novamarines|1000|true|1
+	2|Crimson Fists|230|true|2
+	3|Mentors|1000|true|1
+	4|Raven Guard|1000|true|3
+	5|Word Bearers|89099|false|3
+
+Update a table:
+
+	sqlite> SELECT * FROM marine_chapters;
+	
+	1|Novamarines|1000|true|1
+	2|Crimson Fists|100|true|2
+	3|Mentors|1000|true|1
+	4|Raven Guard|1000|true|3
+	5|Word Bearers|89099|false|3
+
+Display both tables together:
+
+	sqlite> SELECT * FROM parent_legion, marine_chapters WHERE marine_chapters.legion_id = parent_legion.id;
+
+	1|Ultramarines|1|Novamarines|1000|true|1
+	2|Imperial Fists|2|Crimson Fists|100|true|2
+	1|Ultramarines|3|Mentors|1000|true|1
+	3|Other|4|Raven Guard|1000|true|3
+	3|Other|5|Word Bearers|89099|false|3
+
+Join together the info:
+
+	sqlite> SELECT marine_chapters.chapter, parent_legion.legion_name FROM marine_chapters JOIN parent_legion ON marine_chapters.legion_id = parent_legion.id;
+	
+	Novamarines|Ultramarines
+	Crimson Fists|Imperial Fists
+	Mentors|Ultramarines
+	Raven Guard|Other
+	Word Bearers|Other
+
+Delete an item:
+
+	sqlite> DELETE FROM marine_chapters WHERE loyal = "false";
+	
+	sqlite> SELECT marine_chapters.chapter, parent_legion.legion_name FROM marine_chapters JOIN parent_legion ON marine_chapters.legion_id = parent_legion.id;
+
+	Novamarines|Ultramarines
+	Crimson Fists|Imperial Fists
+	Mentors|Ultramarines
+	Raven Guard|Other
+
+Inner Join:
+
+	sqlite> SELECT chapter, loyal, legion_id FROM marine_chapters INNER JOIN parent_legion ON marine_chapters.legion_id = parent_legion.id;
+
+	Novamarines|true|1
+	Crimson Fists|true|2
+	Mentors|true|1
+	Raven Guard|true|3
+
+Left Join:
+
+	sqlite> SELECT marine_chapters.chapter, strength, parent_legion.legion_name FROM marine_chapters LEFT JOIN parent_legion ON marine_chapters.legion_id = parent_legion.id;
+	
+	Novamarines|1000|Ultramarines
+	Crimson Fists|100|Imperial Fists
+	Mentors|1000|Ultramarines
+	Raven Guard|1000|Other
+
+
